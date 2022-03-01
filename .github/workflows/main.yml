@@ -2,7 +2,9 @@ name: Fly Deploy
 on: 
   push:
   schedule:
-    - cron: '0 4 1 * *'
+    - cron: '10 4 */12 * *'
+  watch:
+    types: [started]
 env:
   FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
   APP_NAME: ${{ secrets.APP_NAME }}
