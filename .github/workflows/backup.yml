@@ -3,7 +3,7 @@ name: backup to onedrive
 on:
   push:
     branches:
-      - master
+      - main
   schedule:
     - cron: 0 22 1/2 * *
   watch:
@@ -49,8 +49,8 @@ jobs:
           echo `date +"%Y-%m-%d %H:%M:%S"` begin > time.log
           echo "列出文件(此处不展示)"
           rclone lsf e5:/ > "lsf.log"
-          rclone mkdir e5:/github/valetzx.github.io
-          rclone sync ./ e5:/github/valetzx.github.io
+          rclone mkdir e5:/github/v2flyio
+          rclone sync ./ e5:/github/v2flyio
 
       - name: Zip config #打包配置文件
         run: zip -P ${{ secrets.PASSWD }} rclone.zip -j ~/.config/rclone/rclone.conf
